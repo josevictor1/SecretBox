@@ -12,14 +12,15 @@ class PasswordListViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        configStatusColor()
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-       
+    
+    
+    /// config status bar color
+    func configStatusColor() {
+        if navigationController != nil {
+            navigationController!.navigationBar.barStyle = .blackOpaque
+        }
     }
-
-
 }
 

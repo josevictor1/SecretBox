@@ -13,6 +13,11 @@
 		1A16B77F20D33F5500EA2E7A /* UserInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A16B77D20D33F5400EA2E7A /* UserInfoCell.swift */; };
 		1A16B78020D33F5500EA2E7A /* UserInfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1A16B77E20D33F5400EA2E7A /* UserInfoCell.xib */; };
 		1A16B78320D359AA00EA2E7A /* UserRegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A16B78220D359AA00EA2E7A /* UserRegisterViewController.swift */; };
+		1A1E910C20D4A90000107E7E /* PasswordRegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A1E910B20D4A8FF00107E7E /* PasswordRegisterViewController.swift */; };
+		1A1E910E20D4A92300107E7E /* PasswordDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A1E910D20D4A92300107E7E /* PasswordDetailViewController.swift */; };
+		1A1E911020D4A94900107E7E /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A1E910F20D4A94900107E7E /* Repository.swift */; };
+		1A1E911220D4AD4000107E7E /* KeyboardAvoidance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A1E911120D4AD4000107E7E /* KeyboardAvoidance.swift */; };
+		1A1E911420D4B0C900107E7E /* CALayerShadowConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A1E911320D4B0C900107E7E /* CALayerShadowConfig.swift */; };
 		1AD1443A20D2BBA9004FDC7E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AD1443920D2BBA9004FDC7E /* AppDelegate.swift */; };
 		1AD1443C20D2BBA9004FDC7E /* PasswordListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AD1443B20D2BBA9004FDC7E /* PasswordListViewController.swift */; };
 		1AD1443F20D2BBA9004FDC7E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1AD1443D20D2BBA9004FDC7E /* Main.storyboard */; };
@@ -50,6 +55,11 @@
 		1A16B77D20D33F5400EA2E7A /* UserInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoCell.swift; sourceTree = "<group>"; };
 		1A16B77E20D33F5400EA2E7A /* UserInfoCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserInfoCell.xib; sourceTree = "<group>"; };
 		1A16B78220D359AA00EA2E7A /* UserRegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRegisterViewController.swift; sourceTree = "<group>"; };
+		1A1E910B20D4A8FF00107E7E /* PasswordRegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordRegisterViewController.swift; sourceTree = "<group>"; };
+		1A1E910D20D4A92300107E7E /* PasswordDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordDetailViewController.swift; sourceTree = "<group>"; };
+		1A1E910F20D4A94900107E7E /* Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
+		1A1E911120D4AD4000107E7E /* KeyboardAvoidance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardAvoidance.swift; sourceTree = "<group>"; };
+		1A1E911320D4B0C900107E7E /* CALayerShadowConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CALayerShadowConfig.swift; sourceTree = "<group>"; };
 		1AD1443620D2BBA9004FDC7E /* SecretBox.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SecretBox.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1AD1443920D2BBA9004FDC7E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1AD1443B20D2BBA9004FDC7E /* PasswordListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordListViewController.swift; sourceTree = "<group>"; };
@@ -108,6 +118,8 @@
 			children = (
 				1A16B77720D3307300EA2E7A /* RoundedButton.swift */,
 				1A16B77920D3354200EA2E7A /* JVMaterialText.swift */,
+				1A1E911120D4AD4000107E7E /* KeyboardAvoidance.swift */,
+				1A1E911320D4B0C900107E7E /* CALayerShadowConfig.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -131,6 +143,7 @@
 		1A16B78120D3531000EA2E7A /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				1A1E910F20D4A94900107E7E /* Repository.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -215,6 +228,8 @@
 				1AD1443B20D2BBA9004FDC7E /* PasswordListViewController.swift */,
 				1A16B77420D3277E00EA2E7A /* LoginViewController.swift */,
 				1A16B78220D359AA00EA2E7A /* UserRegisterViewController.swift */,
+				1A1E910B20D4A8FF00107E7E /* PasswordRegisterViewController.swift */,
+				1A1E910D20D4A92300107E7E /* PasswordDetailViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -460,10 +475,15 @@
 				1A16B77520D3277E00EA2E7A /* LoginViewController.swift in Sources */,
 				1A16B77F20D33F5500EA2E7A /* UserInfoCell.swift in Sources */,
 				1A16B77820D3307300EA2E7A /* RoundedButton.swift in Sources */,
+				1A1E911420D4B0C900107E7E /* CALayerShadowConfig.swift in Sources */,
 				1AD1444220D2BBA9004FDC7E /* SecretBox.xcdatamodeld in Sources */,
 				1A16B78320D359AA00EA2E7A /* UserRegisterViewController.swift in Sources */,
+				1A1E911220D4AD4000107E7E /* KeyboardAvoidance.swift in Sources */,
+				1A1E911020D4A94900107E7E /* Repository.swift in Sources */,
 				1A16B77A20D3354200EA2E7A /* JVMaterialText.swift in Sources */,
+				1A1E910E20D4A92300107E7E /* PasswordDetailViewController.swift in Sources */,
 				1AD1443C20D2BBA9004FDC7E /* PasswordListViewController.swift in Sources */,
+				1A1E910C20D4A90000107E7E /* PasswordRegisterViewController.swift in Sources */,
 				1AD1443A20D2BBA9004FDC7E /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -639,6 +659,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 77FV36N6JL;
 				INFOPLIST_FILE = SecretBox/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -657,6 +678,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 77FV36N6JL;
 				INFOPLIST_FILE = SecretBox/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

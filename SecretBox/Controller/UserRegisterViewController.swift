@@ -9,13 +9,28 @@
 import UIKit
 
 class UserRegisterViewController: UIViewController {
-
+    
+    
+    @IBOutlet weak var nameTextField: JVMaterialText!
+    @IBOutlet weak var emailTextField: JVMaterialText!
+    @IBOutlet weak var passwordTextField: JVMaterialText!
+    @IBOutlet weak var titlePasswordDetails: UILabel!
+    @IBOutlet weak var passwordDetaisText: UILabel!
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
 
+    @IBAction func registerPassword(_ sender: Any) {
+        
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

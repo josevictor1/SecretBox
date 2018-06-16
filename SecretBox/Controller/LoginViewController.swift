@@ -8,19 +8,65 @@
 
 import UIKit
 
-class LoginViewController: UIViewController {
-
+class LoginViewController: KeyboardAvoidance {
+    
+    @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var imageLogin: UIImageView!
+    @IBOutlet weak var emailField: JVMaterialText!
+    @IBOutlet weak var passwordField: JVMaterialText!
+    @IBOutlet weak var rememberMe: RoundedButton!
+    @IBOutlet weak var button: RoundedButton!
+    
+    var rememberUserLogin = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        setKeyboardToAvoid(scrollView: scrollView)
+        emailField.delegate = self
+        emailField.tag = 0
+        passwordField.delegate = self
+        passwordField.tag = 1
+        
     }
     
-
-
+    @IBAction func rememberUser(_ sender: Any) {
+        rememberUserLogin = !rememberUserLogin
+        updateRemberMeButton()
+    }
+    
+    func updateRemberMeButton() {
+        
+        let themeColor = UIColor(red: 48/255, green: 116/255, blue: 149/255, alpha: 1)
+        
+        if rememberUserLogin {
+            rememberMe.backgroundColor = themeColor
+            rememberMe.setTitleColor(.white, for: .normal)
+        } else {
+            rememberMe.backgroundColor = .white
+            rememberMe.setTitleColor(themeColor, for: .normal)
+            rememberMe.borderColor = .white
+        }
+    }
+    
+    
+    @IBAction func login(_ sender: Any) {
+    
+    }
 }
+
+
+extension LoginViewController: UITextFieldDelegate {
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        
+        if let nextField = textField.superview?.viewWithTag(textField.tag + 1) as? UITextField {
+            nextField.becomeFirstResponder()
+        } else {
+            textField.resignFirstResponder()
+        }
+        
+        return false
+    }
+}
+
+
