@@ -23,10 +23,9 @@ class LoginViewController: KeyboardAvoidance {
         super.viewDidLoad()
         setKeyboardToAvoid(scrollView: scrollView)
         emailField.delegate = self
-        emailField.tag = 0
         passwordField.delegate = self
+        emailField.tag = 0
         passwordField.tag = 1
-        
     }
     
     @IBAction func rememberUser(_ sender: Any) {
@@ -39,15 +38,11 @@ class LoginViewController: KeyboardAvoidance {
         let themeColor = UIColor(red: 48/255, green: 116/255, blue: 149/255, alpha: 1)
         
         if rememberUserLogin {
-            rememberMe.backgroundColor = themeColor
-            rememberMe.setTitleColor(.white, for: .normal)
+            rememberMe.updateButtonOnClick(textColor: .white, backGroundColor: themeColor)
         } else {
-            rememberMe.backgroundColor = .white
-            rememberMe.setTitleColor(themeColor, for: .normal)
-            rememberMe.borderColor = .white
+            rememberMe.updateButtonOnClick(textColor: themeColor, backGroundColor: .white)
         }
     }
-    
     
     @IBAction func login(_ sender: Any) {
     

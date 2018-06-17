@@ -8,14 +8,14 @@
 
 import UIKit
 
-class UserRegisterViewController: UIViewController {
-    
+class UserRegisterViewController: KeyboardAvoidance {
     
     @IBOutlet weak var nameTextField: JVMaterialText!
     @IBOutlet weak var emailTextField: JVMaterialText!
     @IBOutlet weak var passwordTextField: JVMaterialText!
     @IBOutlet weak var titlePasswordDetails: UILabel!
     @IBOutlet weak var passwordDetaisText: UILabel!
+    @IBOutlet weak var scrollView: UIScrollView!
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
@@ -23,28 +23,36 @@ class UserRegisterViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        setKeyboardToAvoid(scrollView: scrollView)
+        nameTextField.delegate = self
+        emailTextField.delegate = self
+        passwordTextField.delegate = self
+        nameTextField.tag = TextFields.name.rawValue
+        emailTextField.tag = TextFields.email.rawValue
+        passwordTextField.tag = TextFields.password.rawValue
     }
-
+    
     @IBAction func registerPassword(_ sender: Any) {
         
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
+    @IBAction func backToLogin(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
     }
     
+}
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+extension UserRegisterViewController: UITextFieldDelegate {
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        
+        if let nextField = textField.superview?.viewWithTag(textField.tag + 1) as? UITextField {
+            nextField.becomeFirstResponder()
+        } else {
+            textField.resignFirstResponder()
+        }
+        
+        return false
     }
-    */
-
 }

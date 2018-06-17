@@ -13,8 +13,32 @@ class RoundedButton: UIButton {
     
     // MARK: - Drawing Function
     
-    @IBInspectable open var borderColor: UIColor = UIColor.clear
-    @IBInspectable open var borderWidth: CGFloat = 0.0
+    @IBInspectable
+    var borderWidth: CGFloat {
+        get {
+            return layer.borderWidth
+        }
+        set {
+            layer.borderWidth = newValue
+        }
+    }
+    
+    @IBInspectable
+    var borderColor: UIColor? {
+        get {
+            if let color = layer.borderColor {
+                return UIColor(cgColor: color)
+            }
+            return nil
+        }
+        set {
+            if let color = newValue {
+                layer.borderColor = color.cgColor
+            } else {
+                layer.borderColor = nil
+            }
+        }
+    }
     
     override func draw(_ rect: CGRect) {
         super.draw(rect)
@@ -22,6 +46,14 @@ class RoundedButton: UIButton {
         layer.masksToBounds = false
         clipsToBounds = true
         layer.borderWidth = borderWidth
-        layer.borderColor = borderColor.cgColor
+        layer.borderColor = borderColor?.cgColor
+    }
+    
+    func updateButtonOnClick(newTitle: String = "", textColor: UIColor, backGroundColor: UIColor) {
+
+        let textTitle = newTitle != "" ? newTitle : titleLabel!.text
+        setTitle(textTitle, for: .normal)
+        setTitleColor(textColor, for: .normal)
+        backgroundColor = backGroundColor
     }
 }

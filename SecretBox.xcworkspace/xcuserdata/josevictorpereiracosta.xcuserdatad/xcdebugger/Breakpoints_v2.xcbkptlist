@@ -22,15 +22,15 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "No"
+            shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SecretBox/Controller/LoginViewController.swift"
-            timestampString = "550840838.966171"
+            timestampString = "550957703.51613"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "44"
-            endingLineNumber = "44"
+            startingLineNumber = "40"
+            endingLineNumber = "40"
             landmarkName = "updateRemberMeButton()"
             landmarkType = "7">
          </BreakpointContent>
@@ -41,13 +41,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "SecretBox/Controller/LoginViewController.swift"
-            timestampString = "550840838.966241"
+            filePath = "SecretBox/Helper/RoundedButton.swift"
+            timestampString = "550957703.51621"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "41"
-            endingLineNumber = "41"
-            landmarkName = "updateRemberMeButton()"
+            startingLineNumber = "54"
+            endingLineNumber = "54"
+            landmarkName = "updateButtonOnClick(newTitle:textColor:backGroundColor:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

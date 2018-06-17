@@ -13,6 +13,9 @@
 		1A16B77F20D33F5500EA2E7A /* UserInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A16B77D20D33F5400EA2E7A /* UserInfoCell.swift */; };
 		1A16B78020D33F5500EA2E7A /* UserInfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1A16B77E20D33F5400EA2E7A /* UserInfoCell.xib */; };
 		1A16B78320D359AA00EA2E7A /* UserRegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A16B78220D359AA00EA2E7A /* UserRegisterViewController.swift */; };
+		1A18B07720D699D100BB46DA /* RoundedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A18B07620D699D100BB46DA /* RoundedView.swift */; };
+		1A18B07A20D6CB1500BB46DA /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A18B07920D6CB1500BB46DA /* UIViewControllerExtension.swift */; };
+		1A18B07E20D6D90300BB46DA /* ModalImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A18B07D20D6D90300BB46DA /* ModalImageViewController.swift */; };
 		1A1E910C20D4A90000107E7E /* PasswordRegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A1E910B20D4A8FF00107E7E /* PasswordRegisterViewController.swift */; };
 		1A1E910E20D4A92300107E7E /* PasswordDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A1E910D20D4A92300107E7E /* PasswordDetailViewController.swift */; };
 		1A1E911020D4A94900107E7E /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A1E910F20D4A94900107E7E /* Repository.swift */; };
@@ -55,6 +58,9 @@
 		1A16B77D20D33F5400EA2E7A /* UserInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoCell.swift; sourceTree = "<group>"; };
 		1A16B77E20D33F5400EA2E7A /* UserInfoCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserInfoCell.xib; sourceTree = "<group>"; };
 		1A16B78220D359AA00EA2E7A /* UserRegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRegisterViewController.swift; sourceTree = "<group>"; };
+		1A18B07620D699D100BB46DA /* RoundedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedView.swift; sourceTree = "<group>"; };
+		1A18B07920D6CB1500BB46DA /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
+		1A18B07D20D6D90300BB46DA /* ModalImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalImageViewController.swift; sourceTree = "<group>"; };
 		1A1E910B20D4A8FF00107E7E /* PasswordRegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordRegisterViewController.swift; sourceTree = "<group>"; };
 		1A1E910D20D4A92300107E7E /* PasswordDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordDetailViewController.swift; sourceTree = "<group>"; };
 		1A1E910F20D4A94900107E7E /* Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
@@ -116,7 +122,9 @@
 		1A16B77620D3304600EA2E7A /* Helper */ = {
 			isa = PBXGroup;
 			children = (
+				1A18B07820D6CACC00BB46DA /* Extensions */,
 				1A16B77720D3307300EA2E7A /* RoundedButton.swift */,
+				1A18B07620D699D100BB46DA /* RoundedView.swift */,
 				1A16B77920D3354200EA2E7A /* JVMaterialText.swift */,
 				1A1E911120D4AD4000107E7E /* KeyboardAvoidance.swift */,
 				1A1E911320D4B0C900107E7E /* CALayerShadowConfig.swift */,
@@ -146,6 +154,14 @@
 				1A1E910F20D4A94900107E7E /* Repository.swift */,
 			);
 			path = Services;
+			sourceTree = "<group>";
+		};
+		1A18B07820D6CACC00BB46DA /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				1A18B07920D6CB1500BB46DA /* UIViewControllerExtension.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		1AD1442D20D2BBA9004FDC7E = {
@@ -230,6 +246,7 @@
 				1A16B78220D359AA00EA2E7A /* UserRegisterViewController.swift */,
 				1A1E910B20D4A8FF00107E7E /* PasswordRegisterViewController.swift */,
 				1A1E910D20D4A92300107E7E /* PasswordDetailViewController.swift */,
+				1A18B07D20D6D90300BB46DA /* ModalImageViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -474,10 +491,13 @@
 			files = (
 				1A16B77520D3277E00EA2E7A /* LoginViewController.swift in Sources */,
 				1A16B77F20D33F5500EA2E7A /* UserInfoCell.swift in Sources */,
+				1A18B07A20D6CB1500BB46DA /* UIViewControllerExtension.swift in Sources */,
+				1A18B07720D699D100BB46DA /* RoundedView.swift in Sources */,
 				1A16B77820D3307300EA2E7A /* RoundedButton.swift in Sources */,
 				1A1E911420D4B0C900107E7E /* CALayerShadowConfig.swift in Sources */,
 				1AD1444220D2BBA9004FDC7E /* SecretBox.xcdatamodeld in Sources */,
 				1A16B78320D359AA00EA2E7A /* UserRegisterViewController.swift in Sources */,
+				1A18B07E20D6D90300BB46DA /* ModalImageViewController.swift in Sources */,
 				1A1E911220D4AD4000107E7E /* KeyboardAvoidance.swift in Sources */,
 				1A1E911020D4A94900107E7E /* Repository.swift in Sources */,
 				1A16B77A20D3354200EA2E7A /* JVMaterialText.swift in Sources */,
