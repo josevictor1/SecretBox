@@ -23,6 +23,7 @@
 		1A18B08F20D766FF00BB46DA /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A18B08E20D766FF00BB46DA /* User.swift */; };
 		1A18B09120D7685000BB46DA /* PasswordStored.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A18B09020D7685000BB46DA /* PasswordStored.swift */; };
 		1A18B09320D76AC800BB46DA /* PasswordStoredList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A18B09220D76AC800BB46DA /* PasswordStoredList.swift */; };
+		1A18B09820D7C7A800BB46DA /* ResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A18B09720D7C7A800BB46DA /* ResponseModel.swift */; };
 		1A1E910C20D4A90000107E7E /* PasswordRegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A1E910B20D4A8FF00107E7E /* PasswordRegisterViewController.swift */; };
 		1A1E910E20D4A92300107E7E /* PasswordDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A1E910D20D4A92300107E7E /* PasswordDetailViewController.swift */; };
 		1A1E911220D4AD4000107E7E /* KeyboardAvoidance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A1E911120D4AD4000107E7E /* KeyboardAvoidance.swift */; };
@@ -74,6 +75,7 @@
 		1A18B08E20D766FF00BB46DA /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		1A18B09020D7685000BB46DA /* PasswordStored.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordStored.swift; sourceTree = "<group>"; };
 		1A18B09220D76AC800BB46DA /* PasswordStoredList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordStoredList.swift; sourceTree = "<group>"; };
+		1A18B09720D7C7A800BB46DA /* ResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseModel.swift; sourceTree = "<group>"; };
 		1A1E910B20D4A8FF00107E7E /* PasswordRegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordRegisterViewController.swift; sourceTree = "<group>"; };
 		1A1E910D20D4A92300107E7E /* PasswordDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordDetailViewController.swift; sourceTree = "<group>"; };
 		1A1E911120D4AD4000107E7E /* KeyboardAvoidance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardAvoidance.swift; sourceTree = "<group>"; };
@@ -316,6 +318,7 @@
 				1A18B08E20D766FF00BB46DA /* User.swift */,
 				1A18B09020D7685000BB46DA /* PasswordStored.swift */,
 				1A18B09220D76AC800BB46DA /* PasswordStoredList.swift */,
+				1A18B09720D7C7A800BB46DA /* ResponseModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -585,6 +588,7 @@
 				1A18B07E20D6D90300BB46DA /* ModalImageViewController.swift in Sources */,
 				1A18B09320D76AC800BB46DA /* PasswordStoredList.swift in Sources */,
 				1A1E911220D4AD4000107E7E /* KeyboardAvoidance.swift in Sources */,
+				1A18B09820D7C7A800BB46DA /* ResponseModel.swift in Sources */,
 				1A16B77A20D3354200EA2E7A /* JVMaterialText.swift in Sources */,
 				1A1E910E20D4A92300107E7E /* PasswordDetailViewController.swift in Sources */,
 				1A18B08720D72D8700BB46DA /* StringExtension.swift in Sources */,

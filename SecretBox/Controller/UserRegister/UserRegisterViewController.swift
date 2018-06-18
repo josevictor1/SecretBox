@@ -37,12 +37,20 @@ class UserRegisterViewController: KeyboardAvoidance {
         
         let service = SBRepository()
         
+        var user: User = User()
+        
         service.postLogin(email: "igor@email.com", password: "Senha@12346") { (result) in
-            print(result.value)
+            if let json = result.value {
+                if let dictionary = json as? [String: String] {
+                    print(dictionary)
+                }
+            }
         }
         
         service.postRegister(email: "teste1@gmail.com", password: "Teste@1905", name: "Teste teste", withCompletionHandler: { (result) in
-            print(result.value)})
+            print(result.value)
+            //print(result.response)
+        })
         
         
     }
