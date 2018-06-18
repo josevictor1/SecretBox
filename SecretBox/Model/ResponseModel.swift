@@ -9,5 +9,6 @@
 import Foundation
 
 class ResponseModel: Codable {
-    
+    var type: String?
+    var message: String?
 }

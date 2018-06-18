@@ -24,6 +24,8 @@ class UserRegisterViewController: KeyboardAvoidance {
         return .lightContent
     }
     
+    let service = SBRepository()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setKeyboardToAvoid(scrollView: scrollView)
@@ -35,22 +37,22 @@ class UserRegisterViewController: KeyboardAvoidance {
         passwordTextField.tag = TextFields.password.rawValue
         setPasswordDetailsText()
         
-        let service = SBRepository()
+    
         
         var user: User = User()
         
-        service.postLogin(email: "igor@email.com", password: "Senha@12346") { (result) in
-            if let json = result.value {
-                if let dictionary = json as? [String: String] {
-                    print(dictionary)
-                }
-            }
-        }
+//        service.postLogin(email: "igor@email.com", password: "Senha@12346") { (result) in
+//            if let json = result.value {
+//                if let dictionary = json as? [String: String] {
+//                    print(dictionary)
+//                }
+//            }
+//        }
         
-        service.postRegister(email: "teste1@gmail.com", password: "Teste@1905", name: "Teste teste", withCompletionHandler: { (result) in
-            print(result.value)
-            //print(result.response)
-        })
+//        service.postRegister(email: "teste1@gmail.com", password: "Teste@1905", name: "Teste teste", withCompletionHandler: { (result) in
+//            print(result.value)
+//            //print(result.response)
+//        })
         
         
     }
@@ -59,6 +61,54 @@ class UserRegisterViewController: KeyboardAvoidance {
         titlePasswordDetails.text = "A senha deve possuir:"
         passwordDetaisText.text = " • mínimo 8 caracteres \n • 1 letra \n • 1 número \n • 1 caractere especial \n"
     }
+    
+    
+    
+    
+    
+    func registerOnService() {
+        
+        guard var email = emailTextField.text, var name = nameTextField.text, var password = passwordTextField.text  else {
+            return
+        }
+
+        
+        handleServiceStatus(message: "Processando dados ...")
+        service.postRegister(email: email, password: password, name: name, withCompletionHandler: { (serviceresponse) in
+            
+            
+            let jsonResponse = serviceresponse.result.value
+            guard let dictionary = jsonResponse as? [String: String] else{
+                return
+            }
+            
+            if dictionary["type"] != "error"  {
+                self.handleServiceStatus(message: "Cadastro realizado")
+                User.authorizationToken = dictionary["token"]!
+                User.loggedUser = email
+
+                let user = User()
+                user.user = email
+                user.password = password
+
+                let savedInfo = PasswordStoredList()
+                savedInfo.user = user
+                savedInfo.setPasswords([PasswordStored]())
+
+                Keychain.set(key: email, value: savedInfo.toString())
+                UserDefaults.standard.set(email, forKey: "keepConnected")
+
+                self.handleServiceStatus(message: "sucessagem")
+                self.returnToTheFlow()
+            } else {
+                self.handleServiceStatus(message: "Esse email já existe")
+            }
+            
+        })
+        
+        
+    }
+    
     
 //    func register() {
 //
@@ -109,14 +159,14 @@ class UserRegisterViewController: KeyboardAvoidance {
     
     //}
     
-    func handleServiceError(message: String) {
+    func handleServiceStatus(message: String) {
         titlePasswordDetails.text = message
         passwordDetaisText.text = ""
         
     }
     
-    func goToList(){
-        let registerViewController = self.storyboard?.instantiateViewController(withIdentifier: "PasswordListViewController") as! PasswordListViewController
+    func returnToTheFlow(){
+        let registerViewController = self.storyboard?.instantiateViewController(withIdentifier: "NavigarionControlllnitial") as! UINavigationController
         self.present(registerViewController, animated: true)
     }
     
@@ -125,7 +175,8 @@ class UserRegisterViewController: KeyboardAvoidance {
 //            ///register()
 //        }
 //        self.dismiss(animated: true, completion: nil)
-        goToList()
+        registerOnService()
+        //goToList()
     }
     
     
