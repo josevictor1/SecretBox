@@ -8,19 +8,34 @@
 
 import UIKit
 
-
 import UIKit
 import Alamofire
 import LocalAuthentication
 
 class PasswordListViewController: UITableViewController {
 
+    
+    var passwordStoredList = [PasswordStored]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         configStatusColor()
         //getTouchID()
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "PasswordDetailViewControllerSegue" {
+            if let passwordDetail = segue.destination as? PasswordDetailViewController {
+                passwordDetail.detailedObject = passwordStoredList[(tableView.indexPathForSelectedRow?.row)!]
+                passwordDetail.delegate = self
+            }
+        }
+        else if segue.identifier == "PasswordRegisterViewControllerSegue" {
+            if let destinationVC = segue.destination as? PasswordRegisterViewController{
+                destinationVC.delegate = self
+            }
+        }
+    }
     
     /// config status bar color
     func configStatusColor() {
@@ -29,15 +44,49 @@ class PasswordListViewController: UITableViewController {
         }
     }
     
-//    private func setLoggedUser() {
-//        let automaticLogin = UserDefaults.standard.string(forKey: "keepConnected")
-//        guard let automaticUser = automaticLogin else {
-//            return
-//        }
-//        if automaticUser.count > 0 {
-//            User.loggedUser = automaticUser
-//        }
-//    }
+    private func setLoggedUser() {
+        let automaticLogin = UserDefaults.standard.string(forKey: "keepConnected")
+        guard let automaticUser = automaticLogin else {
+            return
+        }
+        if automaticUser.count > 0 {
+            User.loggedUser = automaticUser
+        }
+    }
+    
+    func performeToLogin() {
+        UserDefaults.standard.set("", forKey: "keepConnected")
+        performSegue(withIdentifier: "LoginViewControllerSegue", sender: nil)
+    }
+    
+    
+    func getTouchID() {
+        let myContext = LAContext()
+        let myLocalizedReasonString = "Por favor, cadastre sua digital!"
+        
+        guard let storedData = Keychain.get(key: User.loggedUser) else {
+            return
+        }
+        let savedInfo = PasswordStoredList(fromString: storedData)
+        let touch = savedInfo.user.haveTouchID
+        
+        if touch == nil {
+            var authError: NSError?
+            if #available(iOS 8.0, *) {
+                if myContext.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: &authError) {
+                    myContext.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, localizedReason: myLocalizedReasonString) { success, evaluateError in
+                        if success {
+                            savedInfo.user.haveTouchID = true
+                        } else {
+                            savedInfo.user.haveTouchID = false
+                        }
+                        Keychain.set(key: savedInfo.user.user, value: savedInfo.toString())
+                    }
+                }
+            }
+        }
+    }
+
     
 //    func automaticLogin() {
 //        let automaticLogin = UserDefaults.standard.string(forKey: "keepConnected")
@@ -90,25 +139,9 @@ class PasswordListViewController: UITableViewController {
 //        }
 //    }
 //
-//    func goToLogin() {
-//        UserDefaults.standard.set("", forKey: "keepConnected")
-//        performSegue(withIdentifier: "loginSegue", sender: nil)
-//    }
+
 //
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        if segue.identifier == "showPasswordDetailSegue" {
-//            if let destinationVC = segue.destination as? PasswordDetailViewController{
-//                destinationVC.model = list[(tableView.indexPathForSelectedRow?.row)!]
-//                destinationVC.delegate = self
-//            }
-//        }
-//        else if segue.identifier == "addPasswordSegue" {
-//            if let destinationVC = segue.destination as? PasswordRegisterViewController{
-//                destinationVC.delegate = self
-//                destinationVC.transitioningDelegate = self
-//            }
-//        }
-//    }
+
 //
 //    override func viewWillAppear(_ animated: Bool) {
 //        super.viewWillAppear(animated)
@@ -117,31 +150,10 @@ class PasswordListViewController: UITableViewController {
 //        reloadTableView()
 //    }
 //
-//    func getTouchID() {
-//        let myContext = LAContext()
-//        let myLocalizedReasonString = "Por favor, cadastre sua digital!"
-//
-//        guard let storedData = Keychain.get(key: User.loggedUser) else {
-//            return
-//        }
-//        let savedInfo = PasswordStoredList(fromString: storedData)
-//        let touch = savedInfo.user.haveTouchID
-//
-//        if touch == nil {
-//            var authError: NSError?
-//            if #available(iOS 8.0, *) {
-//                if myContext.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: &authError) {
-//                    myContext.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, localizedReason: myLocalizedReasonString) { success, evaluateError in
-//                        if success {
-//                            savedInfo.user.haveTouchID = true
-//                        } else {
-//                            savedInfo.user.haveTouchID = false
-//                        }
-//                        Keychain.set(key: savedInfo.user.user, value: savedInfo.toString())
-//                    }
-//                }
-//            }
-//        }
-//    }
+}
+extension PasswordListViewController: PasswordDetailViewControllerDelegate {
+    func saveEditions(passwordDetailViewControllerDelegate: PasswordDetailViewControllerDelegate, index: Int, passwordStored: PasswordStored) {
+        return
+    }
 }
 

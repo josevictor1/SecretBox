@@ -12,8 +12,13 @@ enum TextFields: Int {
     case name = 0, email, password
 }
 
-class PasswordDetailViewController: KeyboardAvoidance {
+protocol PasswordDetailViewControllerDelegate: class {
+    
+    func saveEditions(passwordDetailViewControllerDelegate: PasswordDetailViewControllerDelegate, index: Int, passwordStored: PasswordStored)
+}
 
+class PasswordDetailViewController: KeyboardAvoidance {
+    
     @IBOutlet weak var imageShadowView: UIView!
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var nameTextField: JVMaterialText!
@@ -25,13 +30,13 @@ class PasswordDetailViewController: KeyboardAvoidance {
     @IBOutlet weak var obfuscatorButton: UIButton!
     @IBOutlet weak var copyButton: UIButton!
     
-    
+    weak var delegate: PasswordDetailViewControllerDelegate?
+    var detailedObject = PasswordStored()
     var isEditingSaving = false
     var isObfuscated = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        scrollViewDidScroll(scrollView: scrollView)
         setKeyboardToAvoid(scrollView: scrollView)
         nameTextField.delegate = self
         emailTextField.delegate = self
@@ -40,12 +45,6 @@ class PasswordDetailViewController: KeyboardAvoidance {
         emailTextField.tag = TextFields.email.rawValue
         passwordTextField.tag = TextFields.password.rawValue
         enableDisableEditing()
-    }
-    
-    func scrollViewDidScroll(scrollView: UIScrollView) {
-        if scrollView.contentOffset.x > 0 {
-            scrollView.contentOffset.x = 0
-        }
     }
     
     func updateEditSaveButton() {
@@ -97,7 +96,6 @@ class PasswordDetailViewController: KeyboardAvoidance {
         enableDisableEditing()
         self.performSegue(withIdentifier: "ModalImageViewController", sender: self)
     }
-    
 }
 
 extension PasswordDetailViewController: UITextFieldDelegate {
@@ -119,5 +117,7 @@ extension PasswordDetailViewController: ModalImageViewControllerDelegate {
         return isEditingSaving
     }
 }
+
+
 
 

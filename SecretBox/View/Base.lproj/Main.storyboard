@@ -28,7 +28,7 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="x2f-RC-4xv" customClass="RoundedView" customModule="SecretBox" customModuleProvider="target">
                                                 <rect key="frame" x="39" y="32" width="296" height="423"/>
                                                 <subviews>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="NOME" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6Yu-Pu-6AH" customClass="JVMaterialText" customModule="SecretBox" customModuleProvider="target">
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="SITE" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6Yu-Pu-6AH" customClass="JVMaterialText" customModule="SecretBox" customModuleProvider="target">
                                                         <rect key="frame" x="20" y="126" width="256" height="40"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="40" id="HEe-w2-SqZ"/>
@@ -52,7 +52,7 @@
                                                             <userDefinedRuntimeAttribute type="color" keyPath="errorColor">
                                                                 <color key="value" red="0.87665712829999998" green="0.01343054418" blue="0.011225198400000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             </userDefinedRuntimeAttribute>
-                                                            <userDefinedRuntimeAttribute type="string" keyPath="floatingPlaceHolder" value="NOME"/>
+                                                            <userDefinedRuntimeAttribute type="string" keyPath="floatingPlaceHolder" value="SITE"/>
                                                         </userDefinedRuntimeAttributes>
                                                     </textField>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="SENHA" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cEU-UA-kf7" customClass="JVMaterialText" customModule="SecretBox" customModuleProvider="target">
@@ -221,9 +221,6 @@
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
-                                <connections>
-                                    <segue destination="8BN-F3-xVF" kind="show" id="Beq-Js-VXg"/>
-                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -235,12 +232,13 @@
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="hSO-SA-Ccx">
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
-                                <segue destination="HlK-uD-qVc" kind="show" id="LtQ-bO-x8t"/>
+                                <segue destination="HlK-uD-qVc" kind="show" identifier="PasswordRegisterViewControllerSegue" id="LtQ-bO-x8t"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <segue destination="BYZ-38-t0r" kind="presentation" id="3jl-Dw-YNa"/>
+                        <segue destination="BYZ-38-t0r" kind="presentation" identifier="LoginViewControllerSegue" id="3jl-Dw-YNa"/>
+                        <segue destination="8BN-F3-xVF" kind="show" identifier="PasswordDetailViewControllerSegue" id="hAS-6e-zGD"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Jap-u5-Rgn" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -361,7 +359,7 @@
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                                 <connections>
-                                                    <segue destination="Lm1-jw-gk5" kind="show" id="k8Q-Tj-hgn"/>
+                                                    <segue destination="Lm1-jw-gk5" kind="show" identifier="UserRegisterViewControllerSegue" id="k8Q-Tj-hgn"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c4C-oR-7o4" customClass="RoundedButton" customModule="SecretBox" customModuleProvider="target">
@@ -714,7 +712,7 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XOn-6Y-BDf" customClass="RoundedView" customModule="SecretBox" customModuleProvider="target">
                                                 <rect key="frame" x="39" y="32" width="296" height="423"/>
                                                 <subviews>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="NOME" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yju-I8-9wb" customClass="JVMaterialText" customModule="SecretBox" customModuleProvider="target">
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="SITE" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yju-I8-9wb" customClass="JVMaterialText" customModule="SecretBox" customModuleProvider="target">
                                                         <rect key="frame" x="20" y="153" width="257" height="40"/>
                                                         <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <constraints>
@@ -739,7 +737,7 @@
                                                             <userDefinedRuntimeAttribute type="color" keyPath="errorColor">
                                                                 <color key="value" red="0.87665712829999998" green="0.01343054418" blue="0.011225198400000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             </userDefinedRuntimeAttribute>
-                                                            <userDefinedRuntimeAttribute type="string" keyPath="floatingPlaceHolder" value="NOME"/>
+                                                            <userDefinedRuntimeAttribute type="string" keyPath="floatingPlaceHolder" value="SITE"/>
                                                         </userDefinedRuntimeAttributes>
                                                     </textField>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="EMAIL" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fW6-gf-auX" customClass="JVMaterialText" customModule="SecretBox" customModuleProvider="target">
@@ -945,7 +943,7 @@
                         <outlet property="passwordShowHideButton" destination="jR3-D2-7vo" id="Vyb-au-fAr"/>
                         <outlet property="passwordTextField" destination="sr4-pi-4bF" id="XWI-qh-fR7"/>
                         <outlet property="scrollView" destination="xCv-b1-Jim" id="NtR-9X-DfF"/>
-                        <segue destination="aPE-6p-gBX" kind="presentation" identifier="ModalImageViewController" modalPresentationStyle="overCurrentContext" modalTransitionStyle="crossDissolve" id="cyW-HB-xW2"/>
+                        <segue destination="aPE-6p-gBX" kind="presentation" identifier="ModalImageViewControllerSegue" modalPresentationStyle="overCurrentContext" modalTransitionStyle="crossDissolve" id="cyW-HB-xW2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W3R-nB-nqg" userLabel="First Responder" sceneMemberID="firstResponder"/>

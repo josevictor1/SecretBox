@@ -36,25 +36,6 @@ class UserRegisterViewController: KeyboardAvoidance {
         emailTextField.tag = TextFields.email.rawValue
         passwordTextField.tag = TextFields.password.rawValue
         setPasswordDetailsText()
-        
-    
-        
-        var user: User = User()
-        
-//        service.postLogin(email: "igor@email.com", password: "Senha@12346") { (result) in
-//            if let json = result.value {
-//                if let dictionary = json as? [String: String] {
-//                    print(dictionary)
-//                }
-//            }
-//        }
-        
-//        service.postRegister(email: "teste1@gmail.com", password: "Teste@1905", name: "Teste teste", withCompletionHandler: { (result) in
-//            print(result.value)
-//            //print(result.response)
-//        })
-        
-        
     }
     
     func setPasswordDetailsText(){
@@ -62,17 +43,10 @@ class UserRegisterViewController: KeyboardAvoidance {
         passwordDetaisText.text = " • mínimo 8 caracteres \n • 1 letra \n • 1 número \n • 1 caractere especial \n"
     }
     
-    
-    
-    
-    
     func registerOnService() {
-        
-        guard var email = emailTextField.text, var name = nameTextField.text, var password = passwordTextField.text  else {
+        guard let email = emailTextField.text, let name = nameTextField.text, let password = passwordTextField.text  else {
             return
         }
-
-        
         handleServiceStatus(message: "Processando dados ...")
         service.postRegister(email: email, password: password, name: name, withCompletionHandler: { (serviceresponse) in
             
@@ -91,24 +65,22 @@ class UserRegisterViewController: KeyboardAvoidance {
                 user.user = email
                 user.password = password
 
-                let savedInfo = PasswordStoredList()
-                savedInfo.user = user
-                savedInfo.setPasswords([PasswordStored]())
+                let storedInfo = PasswordStoredList()
+                storedInfo.user = user
+                storedInfo.setPasswords([PasswordStored]())
 
-                Keychain.set(key: email, value: savedInfo.toString())
-                UserDefaults.standard.set(email, forKey: "keepConnected")
-
-                self.handleServiceStatus(message: "sucessagem")
+                self.setKeychain(email: email, storedInfo: storedInfo)
                 self.returnToTheFlow()
             } else {
                 self.handleServiceStatus(message: "Esse email já existe")
             }
-            
         })
-        
-        
     }
     
+    func setKeychain(email: String, storedInfo: PasswordStoredList) {
+        Keychain.set(key: email, value: storedInfo.toString())
+        UserDefaults.standard.set(email, forKey: "keepConnected")
+    }
     
 //    func register() {
 //
@@ -154,9 +126,6 @@ class UserRegisterViewController: KeyboardAvoidance {
 //                }
 //            }
 //        }
-    
-    
-    
     //}
     
     func handleServiceStatus(message: String) {
@@ -171,12 +140,7 @@ class UserRegisterViewController: KeyboardAvoidance {
     }
     
     @IBAction func registerPassword(_ sender: Any) {
-//        if emailValid && passwordValid && nameValid {
-//            ///register()
-//        }
-//        self.dismiss(animated: true, completion: nil)
         registerOnService()
-        //goToList()
     }
     
     

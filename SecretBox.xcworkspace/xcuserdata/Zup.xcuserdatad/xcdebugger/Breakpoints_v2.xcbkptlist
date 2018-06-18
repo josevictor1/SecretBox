@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SecretBox/Controller/UserRegister/UserRegisterViewController.swift"
-            timestampString = "551029102.193665"
+            timestampString = "551030317.609284"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "87"
-            endingLineNumber = "87"
+            startingLineNumber = "78"
+            endingLineNumber = "78"
             landmarkName = "registerOnService()"
             landmarkType = "7">
          </BreakpointContent>
@@ -26,11 +26,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SecretBox/Controller/UserRegister/UserRegisterViewController.swift"
-            timestampString = "551029102.194133"
+            timestampString = "551030317.610043"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "83"
-            endingLineNumber = "83"
+            startingLineNumber = "74"
+            endingLineNumber = "74"
             landmarkName = "registerOnService()"
             landmarkType = "7">
          </BreakpointContent>
@@ -42,11 +42,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SecretBox/Controller/UserRegister/UserRegisterViewController.swift"
-            timestampString = "551029102.1944"
+            timestampString = "551030317.6105109"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "79"
-            endingLineNumber = "79"
+            startingLineNumber = "70"
+            endingLineNumber = "70"
             landmarkName = "registerOnService()"
             landmarkType = "7">
             <Locations>
@@ -58,26 +58,26 @@
                   moduleName = "SecretBox"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/Zup/Documents/SecretBox/SecretBox/Controller/UserRegister/UserRegisterViewController.swift"
-                  timestampString = "551029102.450932"
+                  timestampString = "551030317.822292"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "79"
-                  endingLineNumber = "79"
-                  offsetFromSymbolStart = "1941">
+                  startingLineNumber = "70"
+                  endingLineNumber = "70"
+                  offsetFromSymbolStart = "1920">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "function signature specialization &lt;Arg[2] = Value Promoted from Box, Arg[3] = Value Promoted from Box&gt; of closure #1 (Alamofire.DataResponse&lt;Any&gt;) -&gt; () in SecretBox.UserRegisterViewController.registerOnService() -&gt; ()"
+                  symbolName = "closure #1 (Alamofire.DataResponse&lt;Any&gt;) -&gt; () in SecretBox.UserRegisterViewController.registerOnService() -&gt; ()"
                   moduleName = "SecretBox"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/Zup/Documents/SecretBox/SecretBox/Controller/UserRegister/UserRegisterViewController.swift"
-                  timestampString = "551029102.455516"
+                  timestampString = "551030317.824761"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "82"
-                  endingLineNumber = "82"
+                  startingLineNumber = "73"
+                  endingLineNumber = "73"
                   offsetFromSymbolStart = "63">
                </Location>
             </Locations>

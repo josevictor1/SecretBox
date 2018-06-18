@@ -238,13 +238,6 @@
 			path = Security;
 			sourceTree = "<group>";
 		};
-		1A18B09420D7747700BB46DA /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ViewModel;
-			sourceTree = "<group>";
-		};
 		1AD1442D20D2BBA9004FDC7E = {
 			isa = PBXGroup;
 			children = (
@@ -275,7 +268,6 @@
 				1AD1446D20D2C67D004FDC7E /* Controller */,
 				1AD1446C20D2C672004FDC7E /* Model */,
 				1AD1446A20D2C366004FDC7E /* View */,
-				1A18B09420D7747700BB46DA /* ViewModel */,
 				1AD1443920D2BBA9004FDC7E /* AppDelegate.swift */,
 				1AD1444320D2BBAB004FDC7E /* Assets.xcassets */,
 				1AD1444520D2BBAB004FDC7E /* LaunchScreen.storyboard */,
