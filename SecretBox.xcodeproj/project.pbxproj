@@ -16,9 +16,15 @@
 		1A18B07720D699D100BB46DA /* RoundedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A18B07620D699D100BB46DA /* RoundedView.swift */; };
 		1A18B07A20D6CB1500BB46DA /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A18B07920D6CB1500BB46DA /* UIViewControllerExtension.swift */; };
 		1A18B07E20D6D90300BB46DA /* ModalImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A18B07D20D6D90300BB46DA /* ModalImageViewController.swift */; };
+		1A18B08020D71B7500BB46DA /* Keychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A18B07F20D71B7500BB46DA /* Keychain.swift */; };
+		1A18B08720D72D8700BB46DA /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A18B08620D72D8700BB46DA /* StringExtension.swift */; };
+		1A18B08B20D764A000BB46DA /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A18B08A20D764A000BB46DA /* Repository.swift */; };
+		1A18B08D20D7656F00BB46DA /* SBRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A18B08C20D7656F00BB46DA /* SBRepository.swift */; };
+		1A18B08F20D766FF00BB46DA /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A18B08E20D766FF00BB46DA /* User.swift */; };
+		1A18B09120D7685000BB46DA /* PasswordStored.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A18B09020D7685000BB46DA /* PasswordStored.swift */; };
+		1A18B09320D76AC800BB46DA /* PasswordStoredList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A18B09220D76AC800BB46DA /* PasswordStoredList.swift */; };
 		1A1E910C20D4A90000107E7E /* PasswordRegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A1E910B20D4A8FF00107E7E /* PasswordRegisterViewController.swift */; };
 		1A1E910E20D4A92300107E7E /* PasswordDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A1E910D20D4A92300107E7E /* PasswordDetailViewController.swift */; };
-		1A1E911020D4A94900107E7E /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A1E910F20D4A94900107E7E /* Repository.swift */; };
 		1A1E911220D4AD4000107E7E /* KeyboardAvoidance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A1E911120D4AD4000107E7E /* KeyboardAvoidance.swift */; };
 		1A1E911420D4B0C900107E7E /* CALayerShadowConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A1E911320D4B0C900107E7E /* CALayerShadowConfig.swift */; };
 		1AD1443A20D2BBA9004FDC7E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AD1443920D2BBA9004FDC7E /* AppDelegate.swift */; };
@@ -61,9 +67,15 @@
 		1A18B07620D699D100BB46DA /* RoundedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedView.swift; sourceTree = "<group>"; };
 		1A18B07920D6CB1500BB46DA /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
 		1A18B07D20D6D90300BB46DA /* ModalImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalImageViewController.swift; sourceTree = "<group>"; };
+		1A18B07F20D71B7500BB46DA /* Keychain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keychain.swift; sourceTree = "<group>"; };
+		1A18B08620D72D8700BB46DA /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
+		1A18B08A20D764A000BB46DA /* Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
+		1A18B08C20D7656F00BB46DA /* SBRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBRepository.swift; sourceTree = "<group>"; };
+		1A18B08E20D766FF00BB46DA /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		1A18B09020D7685000BB46DA /* PasswordStored.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordStored.swift; sourceTree = "<group>"; };
+		1A18B09220D76AC800BB46DA /* PasswordStoredList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordStoredList.swift; sourceTree = "<group>"; };
 		1A1E910B20D4A8FF00107E7E /* PasswordRegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordRegisterViewController.swift; sourceTree = "<group>"; };
 		1A1E910D20D4A92300107E7E /* PasswordDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordDetailViewController.swift; sourceTree = "<group>"; };
-		1A1E910F20D4A94900107E7E /* Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
 		1A1E911120D4AD4000107E7E /* KeyboardAvoidance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardAvoidance.swift; sourceTree = "<group>"; };
 		1A1E911320D4B0C900107E7E /* CALayerShadowConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CALayerShadowConfig.swift; sourceTree = "<group>"; };
 		1AD1443620D2BBA9004FDC7E /* SecretBox.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SecretBox.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -122,12 +134,9 @@
 		1A16B77620D3304600EA2E7A /* Helper */ = {
 			isa = PBXGroup;
 			children = (
+				1A18B08920D72E0500BB46DA /* Security */,
+				1A18B08820D72DB900BB46DA /* CustomLayoutComponents */,
 				1A18B07820D6CACC00BB46DA /* Extensions */,
-				1A16B77720D3307300EA2E7A /* RoundedButton.swift */,
-				1A18B07620D699D100BB46DA /* RoundedView.swift */,
-				1A16B77920D3354200EA2E7A /* JVMaterialText.swift */,
-				1A1E911120D4AD4000107E7E /* KeyboardAvoidance.swift */,
-				1A1E911320D4B0C900107E7E /* CALayerShadowConfig.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -151,7 +160,8 @@
 		1A16B78120D3531000EA2E7A /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				1A1E910F20D4A94900107E7E /* Repository.swift */,
+				1A18B08A20D764A000BB46DA /* Repository.swift */,
+				1A18B08C20D7656F00BB46DA /* SBRepository.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -160,8 +170,77 @@
 			isa = PBXGroup;
 			children = (
 				1A18B07920D6CB1500BB46DA /* UIViewControllerExtension.swift */,
+				1A18B08620D72D8700BB46DA /* StringExtension.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		1A18B08120D729A000BB46DA /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				1A16B77420D3277E00EA2E7A /* LoginViewController.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		1A18B08220D729B000BB46DA /* UserRegister */ = {
+			isa = PBXGroup;
+			children = (
+				1A16B78220D359AA00EA2E7A /* UserRegisterViewController.swift */,
+			);
+			path = UserRegister;
+			sourceTree = "<group>";
+		};
+		1A18B08320D729C100BB46DA /* UserDetail */ = {
+			isa = PBXGroup;
+			children = (
+				1A1E910D20D4A92300107E7E /* PasswordDetailViewController.swift */,
+				1A18B07D20D6D90300BB46DA /* ModalImageViewController.swift */,
+			);
+			path = UserDetail;
+			sourceTree = "<group>";
+		};
+		1A18B08420D72A0700BB46DA /* RegisterPassword */ = {
+			isa = PBXGroup;
+			children = (
+				1A1E910B20D4A8FF00107E7E /* PasswordRegisterViewController.swift */,
+			);
+			path = RegisterPassword;
+			sourceTree = "<group>";
+		};
+		1A18B08520D72A4700BB46DA /* PasswordList */ = {
+			isa = PBXGroup;
+			children = (
+				1AD1443B20D2BBA9004FDC7E /* PasswordListViewController.swift */,
+			);
+			path = PasswordList;
+			sourceTree = "<group>";
+		};
+		1A18B08820D72DB900BB46DA /* CustomLayoutComponents */ = {
+			isa = PBXGroup;
+			children = (
+				1A1E911320D4B0C900107E7E /* CALayerShadowConfig.swift */,
+				1A16B77920D3354200EA2E7A /* JVMaterialText.swift */,
+				1A1E911120D4AD4000107E7E /* KeyboardAvoidance.swift */,
+				1A16B77720D3307300EA2E7A /* RoundedButton.swift */,
+				1A18B07620D699D100BB46DA /* RoundedView.swift */,
+			);
+			path = CustomLayoutComponents;
+			sourceTree = "<group>";
+		};
+		1A18B08920D72E0500BB46DA /* Security */ = {
+			isa = PBXGroup;
+			children = (
+				1A18B07F20D71B7500BB46DA /* Keychain.swift */,
+			);
+			path = Security;
+			sourceTree = "<group>";
+		};
+		1A18B09420D7747700BB46DA /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		1AD1442D20D2BBA9004FDC7E = {
@@ -194,6 +273,7 @@
 				1AD1446D20D2C67D004FDC7E /* Controller */,
 				1AD1446C20D2C672004FDC7E /* Model */,
 				1AD1446A20D2C366004FDC7E /* View */,
+				1A18B09420D7747700BB46DA /* ViewModel */,
 				1AD1443920D2BBA9004FDC7E /* AppDelegate.swift */,
 				1AD1444320D2BBAB004FDC7E /* Assets.xcassets */,
 				1AD1444520D2BBAB004FDC7E /* LaunchScreen.storyboard */,
@@ -233,6 +313,9 @@
 		1AD1446C20D2C672004FDC7E /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				1A18B08E20D766FF00BB46DA /* User.swift */,
+				1A18B09020D7685000BB46DA /* PasswordStored.swift */,
+				1A18B09220D76AC800BB46DA /* PasswordStoredList.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -240,13 +323,12 @@
 		1AD1446D20D2C67D004FDC7E /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				1A18B08520D72A4700BB46DA /* PasswordList */,
+				1A18B08420D72A0700BB46DA /* RegisterPassword */,
+				1A18B08320D729C100BB46DA /* UserDetail */,
+				1A18B08220D729B000BB46DA /* UserRegister */,
+				1A18B08120D729A000BB46DA /* Login */,
 				1A16B77C20D33ECC00EA2E7A /* UserInfoCell */,
-				1AD1443B20D2BBA9004FDC7E /* PasswordListViewController.swift */,
-				1A16B77420D3277E00EA2E7A /* LoginViewController.swift */,
-				1A16B78220D359AA00EA2E7A /* UserRegisterViewController.swift */,
-				1A1E910B20D4A8FF00107E7E /* PasswordRegisterViewController.swift */,
-				1A1E910D20D4A92300107E7E /* PasswordDetailViewController.swift */,
-				1A18B07D20D6D90300BB46DA /* ModalImageViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -489,22 +571,28 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1A18B08020D71B7500BB46DA /* Keychain.swift in Sources */,
 				1A16B77520D3277E00EA2E7A /* LoginViewController.swift in Sources */,
 				1A16B77F20D33F5500EA2E7A /* UserInfoCell.swift in Sources */,
 				1A18B07A20D6CB1500BB46DA /* UIViewControllerExtension.swift in Sources */,
+				1A18B08D20D7656F00BB46DA /* SBRepository.swift in Sources */,
 				1A18B07720D699D100BB46DA /* RoundedView.swift in Sources */,
 				1A16B77820D3307300EA2E7A /* RoundedButton.swift in Sources */,
 				1A1E911420D4B0C900107E7E /* CALayerShadowConfig.swift in Sources */,
+				1A18B08F20D766FF00BB46DA /* User.swift in Sources */,
 				1AD1444220D2BBA9004FDC7E /* SecretBox.xcdatamodeld in Sources */,
 				1A16B78320D359AA00EA2E7A /* UserRegisterViewController.swift in Sources */,
 				1A18B07E20D6D90300BB46DA /* ModalImageViewController.swift in Sources */,
+				1A18B09320D76AC800BB46DA /* PasswordStoredList.swift in Sources */,
 				1A1E911220D4AD4000107E7E /* KeyboardAvoidance.swift in Sources */,
-				1A1E911020D4A94900107E7E /* Repository.swift in Sources */,
 				1A16B77A20D3354200EA2E7A /* JVMaterialText.swift in Sources */,
 				1A1E910E20D4A92300107E7E /* PasswordDetailViewController.swift in Sources */,
+				1A18B08720D72D8700BB46DA /* StringExtension.swift in Sources */,
 				1AD1443C20D2BBA9004FDC7E /* PasswordListViewController.swift in Sources */,
 				1A1E910C20D4A90000107E7E /* PasswordRegisterViewController.swift in Sources */,
 				1AD1443A20D2BBA9004FDC7E /* AppDelegate.swift in Sources */,
+				1A18B09120D7685000BB46DA /* PasswordStored.swift in Sources */,
+				1A18B08B20D764A000BB46DA /* Repository.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -681,6 +769,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 77FV36N6JL;
 				INFOPLIST_FILE = SecretBox/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -700,6 +789,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 77FV36N6JL;
 				INFOPLIST_FILE = SecretBox/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

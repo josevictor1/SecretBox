@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="8BN-F3-xVF">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Lm1-jw-gk5">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -35,7 +35,7 @@
                                                         </constraints>
                                                         <nil key="textColor"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                        <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES" textContentType="name"/>
+                                                        <textInputTraits key="textInputTraits" textContentType="name"/>
                                                         <userDefinedRuntimeAttributes>
                                                             <userDefinedRuntimeAttribute type="color" keyPath="disabledColor">
                                                                 <color key="value" red="0.18823529410000001" green="0.4549019608" blue="0.58431372550000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -59,7 +59,7 @@
                                                         <rect key="frame" x="20" y="256" width="256" height="40"/>
                                                         <nil key="textColor"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                        <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES" secureTextEntry="YES" textContentType="password"/>
+                                                        <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
                                                         <userDefinedRuntimeAttributes>
                                                             <userDefinedRuntimeAttribute type="color" keyPath="disabledColor">
                                                                 <color key="value" red="0.18823529410000001" green="0.4549019608" blue="0.58431372550000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -83,7 +83,7 @@
                                                         <rect key="frame" x="20" y="191" width="256" height="40"/>
                                                         <nil key="textColor"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                        <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES" textContentType="email"/>
+                                                        <textInputTraits key="textInputTraits" textContentType="email"/>
                                                         <userDefinedRuntimeAttributes>
                                                             <userDefinedRuntimeAttribute type="color" keyPath="disabledColor">
                                                                 <color key="value" red="0.18823529410000001" green="0.4549019608" blue="0.58431372550000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -204,10 +204,10 @@
             </objects>
             <point key="canvasLocation" x="-79.200000000000003" y="1851.7241379310346"/>
         </scene>
-        <!--Password List View Controller-->
+        <!--Suas senhas-->
         <scene sceneID="v47-Fi-zhN">
             <objects>
-                <tableViewController id="lxn-Dc-Etc" customClass="PasswordListViewController" customModule="SecretBox" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="PasswordListViewController" title="Suas senhas" useStoryboardIdentifierAsRestorationIdentifier="YES" id="lxn-Dc-Etc" customClass="PasswordListViewController" customModule="SecretBox" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="IHH-wb-vxO">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -488,17 +488,17 @@
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                                 <connections>
-                                                    <action selector="registerPassword:" destination="Lm1-jw-gk5" eventType="touchUpInside" id="Djq-WF-Ad4"/>
+                                                    <action selector="registerPassword:" destination="Lm1-jw-gk5" eventType="touchUpInside" id="bxi-Na-ukn"/>
                                                 </connections>
                                             </button>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iaN-UZ-cPZ" customClass="RoundedView" customModule="SecretBox" customModuleProvider="target">
                                                 <rect key="frame" x="39" y="32" width="296" height="423"/>
                                                 <subviews>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="EMAIL" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="DKS-cK-DB8" customClass="JVMaterialText" customModule="SecretBox" customModuleProvider="target">
-                                                        <rect key="frame" x="20" y="173.5" width="256" height="40"/>
+                                                        <rect key="frame" x="20" y="175.5" width="256" height="40"/>
                                                         <nil key="textColor"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                        <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES" textContentType="email"/>
+                                                        <textInputTraits key="textInputTraits" textContentType="email"/>
                                                         <userDefinedRuntimeAttributes>
                                                             <userDefinedRuntimeAttribute type="color" keyPath="disabledColor">
                                                                 <color key="value" red="0.18823529410000001" green="0.4549019608" blue="0.58431372550000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -519,10 +519,10 @@
                                                         </userDefinedRuntimeAttributes>
                                                     </textField>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="SENHA" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="d4C-7F-Ls0" customClass="JVMaterialText" customModule="SecretBox" customModuleProvider="target">
-                                                        <rect key="frame" x="20" y="238.5" width="256" height="40"/>
+                                                        <rect key="frame" x="20" y="240.5" width="256" height="40"/>
                                                         <nil key="textColor"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                        <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES" secureTextEntry="YES" textContentType="password"/>
+                                                        <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
                                                         <userDefinedRuntimeAttributes>
                                                             <userDefinedRuntimeAttribute type="color" keyPath="disabledColor">
                                                                 <color key="value" red="0.18823529410000001" green="0.4549019608" blue="0.58431372550000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -542,10 +542,10 @@
                                                             <userDefinedRuntimeAttribute type="string" keyPath="floatingPlaceHolder" value="SENHA"/>
                                                         </userDefinedRuntimeAttributes>
                                                     </textField>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="asdf" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gxp-yV-2cD">
-                                                        <rect key="frame" x="20" y="314.5" width="256" height="20.5"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                        <color key="textColor" red="0.42745098040000001" green="0.42745098040000001" blue="0.42745098040000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gxp-yV-2cD">
+                                                        <rect key="frame" x="20" y="315" width="256" height="82"/>
+                                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="12"/>
+                                                        <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="A senha deve possuir:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hJr-yf-ffM">
@@ -555,13 +555,13 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="NOME" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="e2W-lv-gLx" customClass="JVMaterialText" customModule="SecretBox" customModuleProvider="target">
-                                                        <rect key="frame" x="20" y="108.5" width="256" height="40"/>
+                                                        <rect key="frame" x="20" y="110.5" width="256" height="40"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="40" id="69q-jb-OVF"/>
                                                         </constraints>
                                                         <nil key="textColor"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                        <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES" textContentType="name"/>
+                                                        <textInputTraits key="textInputTraits" textContentType="name"/>
                                                         <userDefinedRuntimeAttributes>
                                                             <userDefinedRuntimeAttribute type="color" keyPath="disabledColor">
                                                                 <color key="value" red="0.18823529410000001" green="0.4549019608" blue="0.58431372550000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -584,21 +584,21 @@
                                                 </subviews>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
-                                                    <constraint firstItem="hJr-yf-ffM" firstAttribute="top" secondItem="d4C-7F-Ls0" secondAttribute="bottom" constant="9" id="4PT-xg-GMg"/>
+                                                    <constraint firstItem="hJr-yf-ffM" firstAttribute="top" secondItem="d4C-7F-Ls0" secondAttribute="bottom" constant="7" id="4PT-xg-GMg"/>
                                                     <constraint firstItem="DKS-cK-DB8" firstAttribute="trailing" secondItem="e2W-lv-gLx" secondAttribute="trailing" id="5rf-s9-IOI"/>
                                                     <constraint firstItem="DKS-cK-DB8" firstAttribute="top" secondItem="e2W-lv-gLx" secondAttribute="bottom" constant="25" id="742-lr-Cz9"/>
-                                                    <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="gxp-yV-2cD" secondAttribute="bottom" constant="5" id="758-wK-Ube"/>
+                                                    <constraint firstAttribute="bottom" relation="lessThanOrEqual" secondItem="gxp-yV-2cD" secondAttribute="bottom" constant="26" id="758-wK-Ube"/>
                                                     <constraint firstAttribute="trailing" secondItem="e2W-lv-gLx" secondAttribute="trailing" constant="20" id="7Ni-0Q-yT3"/>
                                                     <constraint firstItem="gxp-yV-2cD" firstAttribute="trailing" secondItem="e2W-lv-gLx" secondAttribute="trailing" id="HDS-YI-4UO"/>
                                                     <constraint firstItem="d4C-7F-Ls0" firstAttribute="height" secondItem="e2W-lv-gLx" secondAttribute="height" id="LGA-3z-t3g"/>
                                                     <constraint firstItem="gxp-yV-2cD" firstAttribute="leading" secondItem="e2W-lv-gLx" secondAttribute="leading" id="Tos-lD-AWY"/>
+                                                    <constraint firstItem="DKS-cK-DB8" firstAttribute="centerY" secondItem="iaN-UZ-cPZ" secondAttribute="centerY" constant="-16" id="Ty5-7i-l5W"/>
                                                     <constraint firstItem="e2W-lv-gLx" firstAttribute="leading" secondItem="iaN-UZ-cPZ" secondAttribute="leading" constant="20" id="UO6-ZS-JtA"/>
                                                     <constraint firstItem="d4C-7F-Ls0" firstAttribute="leading" secondItem="e2W-lv-gLx" secondAttribute="leading" id="X7p-Xm-IYv"/>
                                                     <constraint firstItem="hJr-yf-ffM" firstAttribute="trailing" secondItem="e2W-lv-gLx" secondAttribute="trailing" id="ZPp-Ix-vjk"/>
                                                     <constraint firstItem="DKS-cK-DB8" firstAttribute="height" secondItem="e2W-lv-gLx" secondAttribute="height" id="dmb-7c-QFg"/>
                                                     <constraint firstItem="DKS-cK-DB8" firstAttribute="leading" secondItem="e2W-lv-gLx" secondAttribute="leading" id="gcH-jQ-RJN"/>
                                                     <constraint firstItem="gxp-yV-2cD" firstAttribute="top" secondItem="hJr-yf-ffM" secondAttribute="bottom" constant="6" id="koV-6G-c0g"/>
-                                                    <constraint firstItem="DKS-cK-DB8" firstAttribute="centerY" secondItem="iaN-UZ-cPZ" secondAttribute="centerY" constant="-18" id="okL-Oe-mwr"/>
                                                     <constraint firstItem="hJr-yf-ffM" firstAttribute="leading" secondItem="e2W-lv-gLx" secondAttribute="leading" id="ooF-4S-kTu"/>
                                                     <constraint firstItem="d4C-7F-Ls0" firstAttribute="trailing" secondItem="e2W-lv-gLx" secondAttribute="trailing" id="sdK-nA-6PX"/>
                                                     <constraint firstItem="d4C-7F-Ls0" firstAttribute="top" secondItem="DKS-cK-DB8" secondAttribute="bottom" constant="25" id="vvY-HM-8rR"/>
@@ -674,7 +674,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="biO-hu-j8x" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="798" y="1852"/>
+            <point key="canvasLocation" x="797.60000000000002" y="1851.7241379310346"/>
         </scene>
         <!--Password Detail View Controller-->
         <scene sceneID="gPf-XX-qFD">
@@ -722,7 +722,7 @@
                                                         </constraints>
                                                         <nil key="textColor"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                        <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES" textContentType="name"/>
+                                                        <textInputTraits key="textInputTraits" textContentType="name"/>
                                                         <userDefinedRuntimeAttributes>
                                                             <userDefinedRuntimeAttribute type="color" keyPath="disabledColor">
                                                                 <color key="value" red="0.18823529410000001" green="0.4549019608" blue="0.58431372550000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -747,7 +747,7 @@
                                                         <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <nil key="textColor"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                        <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES" textContentType="email"/>
+                                                        <textInputTraits key="textInputTraits" textContentType="email"/>
                                                         <userDefinedRuntimeAttributes>
                                                             <userDefinedRuntimeAttribute type="color" keyPath="disabledColor">
                                                                 <color key="value" red="0.18823529410000001" green="0.4549019608" blue="0.58431372550000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -772,7 +772,7 @@
                                                         <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <nil key="textColor"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                        <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES" secureTextEntry="YES" textContentType="password"/>
+                                                        <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
                                                         <userDefinedRuntimeAttributes>
                                                             <userDefinedRuntimeAttribute type="color" keyPath="disabledColor">
                                                                 <color key="value" red="0.18823529410000001" green="0.4549019608" blue="0.58431372550000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

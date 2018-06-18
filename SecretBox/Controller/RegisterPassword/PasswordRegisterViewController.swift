@@ -29,7 +29,6 @@ class PasswordRegisterViewController: KeyboardAvoidance{
     @IBAction func register(_ sender: Any) {
         
     }
-
 }
 
 extension PasswordRegisterViewController: UITextFieldDelegate {
@@ -41,8 +40,9 @@ extension PasswordRegisterViewController: UITextFieldDelegate {
         } else {
             textField.resignFirstResponder()
         }
-        
         return false
     }
 }
+
+
 

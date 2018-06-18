@@ -92,13 +92,13 @@ class JVMaterialText: UITextField {
     
     /// update the colors acording to the textfield state
     func updateColors() {
-        if !isEditing && !hasText {
+        if !isEditing && !hasText && !hasError {
             borderLine.backgroundColor = disabledColor
             placeHolderLabel.textColor = placeHolderColor
         }
         else if hasText || isEditing {
             
-            if !hasText {
+            if !hasText && !hasError {
                 borderLine.backgroundColor = enabledColor
                 placeHolderLabel.textColor = floatingLabelColor
             }

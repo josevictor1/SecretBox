@@ -91,7 +91,6 @@ class PasswordDetailViewController: KeyboardAvoidance {
         }
     }
 
-    
     @IBAction func editSave(_ sender: Any) {
         isEditingSaving = !isEditingSaving
         updateEditSaveButton()
