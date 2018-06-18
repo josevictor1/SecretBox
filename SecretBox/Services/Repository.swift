@@ -11,7 +11,7 @@ import Alamofire
 import Moya
 
 protocol Repository {
-    func postLogin(user: String, password: String, withCompletionHandler: @escaping (_ response: DataResponse<Any>) -> Void)
-    func postRegister(user: String, password: String, name: String, withCompletionHandler: @escaping (_ response: DataResponse<Any>) -> Void)
+    func postLogin(email: String, password: String, withCompletionHandler: @escaping (_ response: DataResponse<Any>) -> Void)
+    func postRegister(email: String, password: String, name: String, withCompletionHandler: @escaping (_ response: DataResponse<Any>) -> Void)
     func getLogo(forUrl:String, withCompletionHandler: @escaping (_ image: UIImage) -> Void)
 }

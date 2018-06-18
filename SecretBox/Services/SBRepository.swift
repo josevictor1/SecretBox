@@ -14,9 +14,9 @@ import Moya
 
 class SBRepository: Repository {
     
-    func postLogin(user: String, password: String, withCompletionHandler: @escaping (_ response: DataResponse<Any>) -> Void){
+    func postLogin(email: String, password: String, withCompletionHandler: @escaping (_ response: DataResponse<Any>) -> Void){
         let parameters: Parameters = [
-            "email": user,
+            "email": email,
             "password": password
         ]
         
@@ -29,10 +29,10 @@ class SBRepository: Repository {
         })
     }
     
-    func postRegister(user: String, password: String, name: String, withCompletionHandler: @escaping (_ response: DataResponse<Any>) -> Void){
+    func postRegister(email: String, password: String, name: String, withCompletionHandler: @escaping (_ response: DataResponse<Any>) -> Void){
         
         let parameters: Parameters = [
-            "email": user,
+            "email": email,
             "name": name,
             "password": password
         ]

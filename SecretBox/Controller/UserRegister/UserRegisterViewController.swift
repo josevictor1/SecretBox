@@ -34,6 +34,17 @@ class UserRegisterViewController: KeyboardAvoidance {
         emailTextField.tag = TextFields.email.rawValue
         passwordTextField.tag = TextFields.password.rawValue
         setPasswordDetailsText()
+        
+        let service = SBRepository()
+        
+        service.postLogin(email: "igor@email.com", password: "Senha@12346") { (result) in
+            print(result.value)
+        }
+        
+        service.postRegister(email: "teste1@gmail.com", password: "Teste@1905", name: "Teste teste", withCompletionHandler: { (result) in
+            print(result.value)})
+        
+        
     }
     
     func setPasswordDetailsText(){
@@ -41,51 +52,54 @@ class UserRegisterViewController: KeyboardAvoidance {
         passwordDetaisText.text = " • mínimo 8 caracteres \n • 1 letra \n • 1 número \n • 1 caractere especial \n"
     }
     
-    func register() {
-        
-        let name = nameTextField.text!
-        let email = nameTextField.text!
-        let password = passwordTextField.text!
-        
-        let service = SBRepository()
-        service.postRegister(user: email, password: password, name: name) { afResponse in
-            guard let response = afResponse.response else {
-                // erro inesperado
-                //                self.error(withMessage: "Ocorreu um erro inesperado, tente novamente mais tarde")
-                return
-            }
-            
-            if response.statusCode == 409 {
-                self.handleServiceError(message: "Email já cadastrado")
-                return
-            }
-            else if response.statusCode == 400 {
-                self.handleServiceError(message: "Email inválido")
-                return
-            }
-            
-            if let json = afResponse.result.value {
-                if let dictionary = json as? [String: String] {
-                    User.authorizationToken = dictionary["token"]!
-                    User.loggedUser = email
-                    
-                    let user = User()
-                    user.user = email
-                    user.password = password
-                    
-                    let savedInfo = PasswordStoredList()
-                    savedInfo.user = user
-                    savedInfo.setPasswords([PasswordStored]())
-                    
-                    Keychain.set(key: email, value: savedInfo.toString())
-                    UserDefaults.standard.set(email, forKey: "keepConnected")
-                    
-                    self.handleServiceError(message: "sucessagem")
-                    self.goToList()
-                }
-            }
-        }
-    }
+//    func register() {
+//
+//        let name = nameTextField.text!
+//        let email = nameTextField.text!
+//        let password = passwordTextField.text!
+//
+//        let service = SBRepository()
+//        service.postRegister(user: email, password: password, name: name) { afResponse in
+//            guard let response = afResponse.response else {
+//                // erro inesperado
+//                //                self.error(withMessage: "Ocorreu um erro inesperado, tente novamente mais tarde")
+//                return
+//            }
+//
+//            if response.statusCode == 409 {
+//                self.handleServiceError(message: "Email já cadastrado")
+//                return
+//            }
+//            else if response.statusCode == 400 {
+//                self.handleServiceError(message: "Email inválido")
+//                return
+//            }
+//
+//            if let json = afResponse.result.value {
+//                if let dictionary = json as? [String: String] {
+//                    User.authorizationToken = dictionary["token"]!
+//                    User.loggedUser = email
+//
+//                    let user = User()
+//                    user.user = email
+//                    user.password = password
+//
+//                    let savedInfo = PasswordStoredList()
+//                    savedInfo.user = user
+//                    savedInfo.setPasswords([PasswordStored]())
+//
+//                    Keychain.set(key: email, value: savedInfo.toString())
+//                    UserDefaults.standard.set(email, forKey: "keepConnected")
+//
+//                    self.handleServiceError(message: "sucessagem")
+//                    self.goToList()
+//                }
+//            }
+//        }
+    
+    
+    
+    //}
     
     func handleServiceError(message: String) {
         titlePasswordDetails.text = message
@@ -99,10 +113,11 @@ class UserRegisterViewController: KeyboardAvoidance {
     }
     
     @IBAction func registerPassword(_ sender: Any) {
-        if emailValid && passwordValid && nameValid {
-            register()
-        }
-        self.dismiss(animated: true, completion: nil)
+//        if emailValid && passwordValid && nameValid {
+//            ///register()
+//        }
+//        self.dismiss(animated: true, completion: nil)
+        goToList()
     }
     
     

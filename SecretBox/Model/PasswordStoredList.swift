@@ -11,7 +11,7 @@ class PasswordStoredList: Codable {
     
     private var passwords = [PasswordStored]()
     var user = User()
-    private var maxIndex:Int = 0
+    private var maxIndex: Int = 0
     
     init() {
         self.passwords = [PasswordStored]()
