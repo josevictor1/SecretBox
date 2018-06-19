@@ -9,7 +9,7 @@
 import UIKit
 
 protocol PasswordRegisterViewControllerDelegate: class {
-    func ragisterPassword(passwordRegisterViewController: PasswordRegisterViewControllerDelegate, passwordStored: PasswordStored)
+    func ragisterPassword(passwordRegisterViewController: PasswordRegisterViewController, passwordStored: PasswordStored)
 }
 
 class PasswordRegisterViewController: KeyboardAvoidance {
@@ -34,15 +34,18 @@ class PasswordRegisterViewController: KeyboardAvoidance {
     }
 
     @IBAction func register(_ sender: Any) {
-        guard let email = emailTextField.text, let site = nameTextField.text, let password = passwordTextField.text  else {
+        guard let user = emailTextField.text, let url = nameTextField.text, let password = passwordTextField.text  else {
             return
         }
         let passwordStored = PasswordStored()
-        passwordStored.
+        passwordStored.url = url
+        passwordStored.user = user
+        passwordStored.password = password
         
         if let passwordListDelegate = delegate {
-            passwordListDelegate.ragisterPassword(passwordRegisterViewController: self, passwordStored: <#T##PasswordStored#>)
+            passwordListDelegate.ragisterPassword(passwordRegisterViewController: self, passwordStored: passwordStored)
         }
+        self.navigationController?.popViewController(animated: true)
     }
 }
 

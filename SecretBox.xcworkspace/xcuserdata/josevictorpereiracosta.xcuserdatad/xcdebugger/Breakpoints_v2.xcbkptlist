@@ -58,13 +58,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SecretBox/Controller/UserRegister/UserRegisterViewController.swift"
-            timestampString = "551012107.205042"
+            timestampString = "551072068.524859"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "153"
-            endingLineNumber = "153"
-            landmarkName = "textField(_:shouldChangeCharactersIn:replacementString:)"
-            landmarkType = "7">
+            startingLineNumber = "108"
+            endingLineNumber = "108"
+            landmarkName = "UserRegisterViewController"
+            landmarkType = "21">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -74,13 +74,77 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SecretBox/Controller/UserRegister/UserRegisterViewController.swift"
-            timestampString = "551012107.205646"
+            timestampString = "551072068.525301"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "152"
-            endingLineNumber = "152"
-            landmarkName = "textField(_:shouldChangeCharactersIn:replacementString:)"
+            startingLineNumber = "107"
+            endingLineNumber = "107"
+            landmarkName = "UserRegisterViewController"
+            landmarkType = "21">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SecretBox/Controller/RegisterPassword/PasswordRegisterViewController.swift"
+            timestampString = "551072068.525683"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "46"
+            endingLineNumber = "46"
+            landmarkName = "register(_:)"
             landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SecretBox/Controller/PasswordList/PasswordListViewController.swift"
+            timestampString = "551072068.525781"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "209"
+            endingLineNumber = "209"
+            landmarkName = "ragisterPassword(passwordRegisterViewController:passwordStored:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "SecretBox.PasswordListViewController.ragisterPassword(passwordRegisterViewController: SecretBox.PasswordRegisterViewController, passwordStored: SecretBox.PasswordStored) -&gt; ()"
+                  moduleName = "SecretBox"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/josevictorpereiracosta/Documents/SecretBox/SecretBox/Controller/PasswordList/PasswordListViewController.swift"
+                  timestampString = "551071812.561204"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "209"
+                  endingLineNumber = "209"
+                  offsetFromSymbolStart = "411">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (__ObjC.UIImage) -&gt; () in SecretBox.PasswordListViewController.ragisterPassword(passwordRegisterViewController: SecretBox.PasswordRegisterViewController, passwordStored: SecretBox.PasswordStored) -&gt; ()"
+                  moduleName = "SecretBox"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/josevictorpereiracosta/Documents/SecretBox/SecretBox/Controller/PasswordList/PasswordListViewController.swift"
+                  timestampString = "551071812.564005"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "211"
+                  endingLineNumber = "211"
+                  offsetFromSymbolStart = "38">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -89,13 +153,61 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "SecretBox/Controller/UserRegister/UserRegisterViewController.swift"
-            timestampString = "551012107.206067"
+            filePath = "SecretBox/Controller/Login/LoginViewController.swift"
+            timestampString = "551072068.525882"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "129"
-            endingLineNumber = "129"
-            landmarkName = "registerPassword(_:)"
+            startingLineNumber = "90"
+            endingLineNumber = "90"
+            landmarkName = "login(withPassword:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SecretBox/Controller/PasswordList/PasswordListViewController.swift"
+            timestampString = "551072068.5259531"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "42"
+            endingLineNumber = "42"
+            landmarkName = "prepare(for:sender:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SecretBox/Controller/UserRegister/UserRegisterViewController.swift"
+            timestampString = "551072068.5260201"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "50"
+            endingLineNumber = "50"
+            landmarkName = "registerOnService()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SecretBox/Controller/UserRegister/UserRegisterViewController.swift"
+            timestampString = "551072068.526323"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "55"
+            endingLineNumber = "55"
+            landmarkName = "registerOnService()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

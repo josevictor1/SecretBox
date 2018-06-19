@@ -7,20 +7,34 @@
 //
 
 import UIKit
-
-import UIKit
 import Alamofire
 import LocalAuthentication
 
 class PasswordListViewController: UITableViewController {
 
-    
     var passwordStoredList = [PasswordStored]()
-    
+   
     override func viewDidLoad() {
         super.viewDidLoad()
+        setLoggedUser()
+        getTouchID()
+        automaticLogin()
         configStatusColor()
-        //getTouchID()
+        registerNib()
+        tableView.separatorInset = .zero
+        tableView.dataSource = self
+        tableView.delegate = self
+    }
+    
+    @IBAction func logout(_ sender: Any) {
+        performeToLogin()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        setLoggedUser()
+        getTouchID()
+        updateTableView()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -31,10 +45,50 @@ class PasswordListViewController: UITableViewController {
             }
         }
         else if segue.identifier == "PasswordRegisterViewControllerSegue" {
-            if let destinationVC = segue.destination as? PasswordRegisterViewController{
-                destinationVC.delegate = self
+            if let passwordRegister = segue.destination as? PasswordRegisterViewController{
+                passwordRegister.delegate = self
             }
         }
+    }
+    
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return passwordStoredList.count
+    }
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "UserInfoCell") as? UserInfoCell else {
+            fatalError("The dequeued cell is not an instance of UserInfoCell")
+        }
+        cell.titleText.text = passwordStoredList[indexPath.row].url
+        cell.descText.text = passwordStoredList[indexPath.row].user
+        cell.imageCell.image = passwordStoredList[indexPath.row].getLogo()
+        
+        return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            deleteData(data: passwordStoredList[indexPath.row])
+            updateTableView()
+        }
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 80
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.performSegue(withIdentifier: "PasswordDetailViewControllerSegue", sender: self)
+    }
+    
+    func deleteData(data: PasswordStored ) {
+        guard let savedInfoString = Keychain.get(key: User.loggedUser) else { return }
+        
+        let oldInfo = PasswordStoredList(fromString: savedInfoString)
+        
+        oldInfo.deleteFromPasswords(value: data)
+        
+        Keychain.set(key: User.loggedUser, value: oldInfo.toString())
     }
     
     /// config status bar color
@@ -42,6 +96,10 @@ class PasswordListViewController: UITableViewController {
         if navigationController != nil {
             navigationController!.navigationBar.barStyle = .blackOpaque
         }
+    }
+    
+    func registerNib() {
+        tableView.register(UINib(nibName: "UserInfoCell", bundle: nil), forCellReuseIdentifier: "UserInfoCell")
     }
     
     private func setLoggedUser() {
@@ -87,73 +145,82 @@ class PasswordListViewController: UITableViewController {
         }
     }
 
-    
-//    func automaticLogin() {
-//        let automaticLogin = UserDefaults.standard.string(forKey: "keepConnected")
-//        guard let automaticUser = automaticLogin else {
-//            goToLogin()
-//            return
-//        }
-//        if automaticUser.count > 0 {
-//            guard let userString = Keychain.get(key: automaticUser) else { return }
-//            let savedPassword = SavedPasswordListModel(fromString: userString)
-//            let userInfo = savedPassword.user
-//
-//            let service = LoginService()
-//            service.login(user: userInfo.user, password: userInfo.password, withCompletionHandler: { afResponse in
-//                self.stopLoading()
-//
-//                guard let response = afResponse.response else {
-//                    // erro inesperado
-//                    return
-//                }
-//
-//                if response.statusCode != 201 {
-//                    //tratar para email/senha incorreta
-//                    return
-//                }
-//
-//                if let json = afResponse.result.value {
-//                    if let dictionary = json as? [String: String] {
-//                        User.authorizationToken = dictionary["token"]!
-//                        self.reloadTableView()
-//                    }
-//                }
-//            })
-//
-//        }
-//        else {
-//            goToLogin()
-//        }
-//    }
-//
-//    func reloadTableView() {
-//        getSavedPassword()
-//        tableView.reloadData()
-//    }
-//
-//    func getSavedPassword() {
-//        if let savedInfoData = Keychain.get(key: User.loggedUser) {
-//            let savedInfo = PasswordStoredList(fromString: savedInfoData)
-//            list = savedInfo.getPasswords()
-//        }
-//    }
-//
+    func automaticLogin() {
+        
+        let automaticLogin = UserDefaults.standard.string(forKey: "keepConnected")
+        
+        guard let automaticUser = automaticLogin else {
+            performeToLogin()
+            return
+        }
+        
+        if automaticUser.count > 0 {
+            
+            guard let userString = Keychain.get(key: automaticUser) else {
+                return
+            }
+            
+            let savedPassword = PasswordStoredList(fromString: userString)
+            let userInfo = savedPassword.user
+            let service = SBRepository()
+            
+            service.postLogin(email: userInfo.user, password: userInfo.password, withCompletionHandler: { response in
+                if let json = response.result.value {
+                    if let dictionary = json as? [String: String] {
+                        User.authorizationToken = dictionary["token"]!
+                        self.updateTableView()
+                    }
+                }
+            })
+            
+        } else {
+            performeToLogin()
+        }
+    }
 
-//
+    func updateTableView() {
+        getStoredData()
+        tableView.reloadData()
+    }
 
-//
-//    override func viewWillAppear(_ animated: Bool) {
-//        super.viewWillAppear(animated)
-//        setLoggedUser()
-//        getTouchID()
-//        reloadTableView()
-//    }
-//
+    func getStoredData() {
+        if let savedInfoData = Keychain.get(key: User.loggedUser) {
+            let savedInfo = PasswordStoredList(fromString: savedInfoData)
+            passwordStoredList = savedInfo.getPasswords()
+        }
+    }
 }
+
 extension PasswordListViewController: PasswordDetailViewControllerDelegate {
     func saveEditions(passwordDetailViewControllerDelegate: PasswordDetailViewControllerDelegate, index: Int, passwordStored: PasswordStored) {
         return
     }
 }
 
+extension PasswordListViewController: PasswordRegisterViewControllerDelegate{
+    func ragisterPassword(passwordRegisterViewController: PasswordRegisterViewController, passwordStored: PasswordStored) {
+        
+        guard let savedInfoString = Keychain.get(key: User.loggedUser) else { return }
+        
+        let recived = passwordStored
+        let oldInfo = PasswordStoredList(fromString: savedInfoString)
+        let service = SBRepository()
+        
+        service.getLogo(forUrl: recived.url, withCompletionHandler: { image in
+            var siteImage: UIImage
+            let fisrt = UIImagePNGRepresentation(image);
+            let second = UIImagePNGRepresentation(UIImage(named: "logo-1")!);
+            if fisrt == second {
+                siteImage = UIImage(named: "logo-1")!
+            } else {
+                siteImage = image
+            }
+            
+            recived.setLogo(image: siteImage)
+            oldInfo.addToPasswords(value: recived)
+            
+            Keychain.set(key: User.loggedUser, value: oldInfo.toString())
+            self.updateTableView()
+        })
+    }
+}

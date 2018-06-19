@@ -7,6 +7,16 @@
 //
 
 import UIKit
+import LocalAuthentication
+
+enum TextFieldLogin: Int {
+    case email = 0, password
+}
+
+enum ErrorNumbers: Int {
+    case forbidden = 403
+    case badRequest = 400
+}
 
 class LoginViewController: KeyboardAvoidance {
     
@@ -24,8 +34,8 @@ class LoginViewController: KeyboardAvoidance {
         setKeyboardToAvoid(scrollView: scrollView)
         emailField.delegate = self
         passwordField.delegate = self
-        emailField.tag = 0
-        passwordField.tag = 1
+        emailField.tag = TextFieldLogin.email.rawValue
+        passwordField.tag = TextFieldLogin.password.rawValue
     }
     
     @IBAction func rememberUser(_ sender: Any) {
@@ -44,111 +54,106 @@ class LoginViewController: KeyboardAvoidance {
         }
     }
     
+    func showAlert(alert: String) {
+        
+        let alert = UIAlertController(title: "", message: alert, preferredStyle: .alert)
+        
+        self.present(alert, animated: true, completion: nil)
+        
+        let when = DispatchTime.now() + 1
+        
+        DispatchQueue.main.asyncAfter(deadline: when) {
+            alert.dismiss(animated: true, completion: nil)
+        }
+    }
     
-//    func doLogin(withPassword password: String) {
-//        let service = LoginService()
-//        startLoading()
-//        service.login(user: userTextField.text!, password: password, withCompletionHandler: { afResponse in
-//            self.stopLoading()
-//            guard let response = afResponse.response else {
-//                // erro inesperado
-//                self.error(withMessage: "Ocorreu um erro inesperado, tente novamente mais tarde")
-//                return
-//            }
-//            
-//            if response.statusCode == 403 {
-//                //tratar para email/senha incorreta
-//                self.error(withMessage: "Email/Senha incorreto(s)")
-//                return
-//            }
-//            else if response.statusCode == 400 {
-//                //tratar para email invalido
-//                self.error(withMessage: "Email inválido")
-//                return
-//            }
-//            
-//            if let json = afResponse.result.value {
-//                if let dictionary = json as? [String: String] {
-//                    UserInfoModel.authorizationToken = dictionary["token"]!
-//                    UserInfoModel.loggedUser = self.userTextField.text!
-//                    
-//                    let user = UserInfoModel()
-//                    user.user = self.userTextField.text!
-//                    user.password = self.passwordTextField.text!
-//                    
-//                    if let savedInfo = Keychain.get(key: self.userTextField.text!) {
-//                        let oldInfo = SavedPasswordListModel(fromString: savedInfo)
-//                        user.haveTouchID = oldInfo.user.haveTouchID
-//                        if user.password.isEmpty {
-//                            user.password = oldInfo.user.password
-//                        }
-//                        oldInfo.user = user
-//                        
-//                        Keychain.set(key: self.userTextField.text!, value: oldInfo.toString())
-//                    }
-//                    else {
-//                        let savedInfo = SavedPasswordListModel()
-//                        savedInfo.user = user
-//                        savedInfo.setPasswords([SavedPasswordModel]())
-//                        
-//                        Keychain.set(key: self.userTextField.text!, value: savedInfo.toString())
-//                    }
-//                    
-//                    self.dismiss(animated: true, completion: nil)
-//                }
-//            }
-//        })
-//    }
-//    
-//    
-//    
-//    
-//    
-//    
-//    func getTouchID(forUser user: User) {
-//        let myContext = LAContext()
-//        let myLocalizedReasonString = "Use para logar novamente"
-//        
-//        var authError: NSError?
-//        if #available(iOS 8.0, *) {
-//            if myContext.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: &authError) {
-//                myContext.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, localizedReason: myLocalizedReasonString) { success, evaluateError in
-//                    if success {
-//                        self.setUserDefaults()
-//                        self.doLogin(withPassword: user.password)
-//                    } else {
-//                        DispatchQueue.main.async {
-//                            self.passwordTextField.becomeFirstResponder()
-//                            self.passwordTextField.isHidden = false
-//                            self.passwordBottomView.isHidden = false
-//                        }
-//                    }
-//                }
-//            }
-//        }
-//    }
-//    
-//    
-//    func setUserDefaults() {
-//        DispatchQueue.main.async {
-//            if self.keepConnected.isOn {
-//                let keepConnected: String = self.userTextField.text ?? ""
-//                UserDefaults.standard.set(keepConnected, forKey: "keepConnected")
-//            } else {
-//                UserDefaults.standard.set("", forKey: "keepConnected")
-//            }
-//        }
-//    }
-//    
-//    @IBAction func loginButtonTouchUpInside(_ sender: RoundedButton) {
-//        setUserDefaults()
-//        doLogin(withPassword: passwordTextField.text!)
-//    }
-//    
-//    
-//    
+    
+    func login(withPassword password: String) {
+        
+        let service = SBRepository()
+        
+        guard let email = emailField.text, let password = passwordField.text else {
+            return
+        }
+        
+        service.postLogin(email: emailField.text!, password: password, withCompletionHandler: { afResponse in
+            guard let response = afResponse.response else {
+                self.showAlert(alert: "Serviço indisponível, tente novamente mais tarde!")
+                return
+            }
+            
+            if response.statusCode == ErrorNumbers.forbidden.rawValue || response.statusCode == ErrorNumbers.badRequest.rawValue {
+                self.showAlert(alert: "Email ou senha incorreto(s)")
+                return
+            }
+            
+            if let json = afResponse.result.value {
+                if let dictionary = json as? [String: String] {
+                    User.authorizationToken = dictionary["token"]!
+                    User.loggedUser = email
+                    
+                    let user = User()
+                    user.user = email
+                    user.password = password
+                    
+                    if let savedInfo = Keychain.get(key: email) {
+                        let oldInfo = PasswordStoredList(fromString: savedInfo)
+                        user.haveTouchID = oldInfo.user.haveTouchID
+                        if user.password.isEmpty {
+                            user.password = oldInfo.user.password
+                        }
+                        oldInfo.user = user
+                        
+                        Keychain.set(key: email, value: oldInfo.toString())
+                    }
+                    else {
+                        let savedInfo = PasswordStoredList()
+                        savedInfo.user = user
+                        savedInfo.setPasswords([PasswordStored]())
+                        
+                        Keychain.set(key: email, value: savedInfo.toString())
+                    }
+                    self.dismiss(animated: true, completion: nil)
+                }
+            }
+        })
+    }
+
+    func setUserDefaults() {
+        DispatchQueue.main.async {
+            if self.rememberUserLogin {
+                let keepConnected: String = self.emailField.text ?? ""
+                UserDefaults.standard.set(keepConnected, forKey: "keepConnected")
+            } else {
+                UserDefaults.standard.set("", forKey: "keepConnected")
+            }
+        }
+    }
+    
+    func getTouchID(forUser user: User) {
+        let myContext = LAContext()
+        let myLocalizedReasonString = "Use para logar novamente"
+        
+        var authError: NSError?
+        if #available(iOS 8.0, *) {
+            if myContext.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: &authError) {
+                myContext.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, localizedReason: myLocalizedReasonString) { success, evaluateError in
+                    if success {
+                        self.setUserDefaults()
+                        self.login(withPassword: user.password)
+                    } else {
+                        DispatchQueue.main.async {
+                            
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
     @IBAction func login(_ sender: Any) {
-    
+        setUserDefaults()
+        login(withPassword: passwordField.text!)
     }
 }
 
@@ -162,7 +167,6 @@ extension LoginViewController: UITextFieldDelegate {
         } else {
             textField.resignFirstResponder()
         }
-        
         return false
     }
 }

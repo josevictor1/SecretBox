@@ -40,7 +40,7 @@ class UserRegisterViewController: KeyboardAvoidance {
     
     func setPasswordDetailsText(){
         titlePasswordDetails.text = "A senha deve possuir:"
-        passwordDetaisText.text = " • mínimo 8 caracteres \n • 1 letra \n • 1 número \n • 1 caractere especial \n"
+        passwordDetaisText.text = " • mínimo 10 caracteres \n • 1 letra \n • 1 número \n • 1 caractere especial \n"
     }
     
     func registerOnService() {
@@ -82,51 +82,6 @@ class UserRegisterViewController: KeyboardAvoidance {
         UserDefaults.standard.set(email, forKey: "keepConnected")
     }
     
-//    func register() {
-//
-//        let name = nameTextField.text!
-//        let email = nameTextField.text!
-//        let password = passwordTextField.text!
-//
-//        let service = SBRepository()
-//        service.postRegister(user: email, password: password, name: name) { afResponse in
-//            guard let response = afResponse.response else {
-//                // erro inesperado
-//                //                self.error(withMessage: "Ocorreu um erro inesperado, tente novamente mais tarde")
-//                return
-//            }
-//
-//            if response.statusCode == 409 {
-//                self.handleServiceError(message: "Email já cadastrado")
-//                return
-//            }
-//            else if response.statusCode == 400 {
-//                self.handleServiceError(message: "Email inválido")
-//                return
-//            }
-//
-//            if let json = afResponse.result.value {
-//                if let dictionary = json as? [String: String] {
-//                    User.authorizationToken = dictionary["token"]!
-//                    User.loggedUser = email
-//
-//                    let user = User()
-//                    user.user = email
-//                    user.password = password
-//
-//                    let savedInfo = PasswordStoredList()
-//                    savedInfo.user = user
-//                    savedInfo.setPasswords([PasswordStored]())
-//
-//                    Keychain.set(key: email, value: savedInfo.toString())
-//                    UserDefaults.standard.set(email, forKey: "keepConnected")
-//
-//                    self.handleServiceError(message: "sucessagem")
-//                    self.goToList()
-//                }
-//            }
-//        }
-    //}
     
     func handleServiceStatus(message: String) {
         titlePasswordDetails.text = message
@@ -166,9 +121,9 @@ extension UserRegisterViewController: UITextFieldDelegate {
         
         if textField.tag == TextFields.password.rawValue {
             if let current = nsString?.replacingCharacters(in: range, with: string), string != "" {
-                if current.count < 8 {
+                if current.count < 10 {
                     passwordTextField.hasError = true
-                    passwordTextField.errorMessage = "número de caracteres menores que 8"
+                    passwordTextField.errorMessage = "número de caracteres menores que 10"
                 } else if !current.verify(selectedType: CharacterSet.decimalDigits) {
                     passwordTextField.hasError = true
                     passwordTextField.errorMessage = "SENHA INVALIDA FALTA: 1 número"

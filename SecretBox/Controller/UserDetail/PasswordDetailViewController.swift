@@ -44,6 +44,9 @@ class PasswordDetailViewController: KeyboardAvoidance {
         nameTextField.tag = TextFields.name.rawValue
         emailTextField.tag = TextFields.email.rawValue
         passwordTextField.tag = TextFields.password.rawValue
+        nameTextField.text = detailedObject.url
+        emailTextField.text = detailedObject.user
+        passwordTextField.text = detailedObject.password
         enableDisableEditing()
     }
     
@@ -62,6 +65,22 @@ class PasswordDetailViewController: KeyboardAvoidance {
         nameTextField.isEnabled = isEditingSaving
         emailTextField.isEnabled = isEditingSaving
         passwordTextField.isEnabled = isEditingSaving
+    }
+    
+    func saveData() {
+        guard let savedInfoString = Keychain.get(key: User.loggedUser) else {
+            return
+        }
+        
+        let oldInfo = PasswordStoredList(fromString: savedInfoString)
+        
+        detailedObject.url = nameTextField.text!
+        detailedObject.user = emailTextField.text!
+        detailedObject.password = passwordTextField.text!
+        
+        oldInfo.updateFromPasswords(newValue: detailedObject)
+        
+        Keychain.set(key: User.loggedUser, value: oldInfo.toString())
     }
     
     @IBAction func showHidePassword(_ sender: Any) {
@@ -84,7 +103,7 @@ class PasswordDetailViewController: KeyboardAvoidance {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if(segue.identifier == "ModalImageViewController"){
+        if(segue.identifier == "ModalImageViewControllerSegue"){
             let modal = segue.destination as! ModalImageViewController
             modal.delegate = self
         }
@@ -94,7 +113,10 @@ class PasswordDetailViewController: KeyboardAvoidance {
         isEditingSaving = !isEditingSaving
         updateEditSaveButton()
         enableDisableEditing()
-        self.performSegue(withIdentifier: "ModalImageViewController", sender: self)
+        if !isEditingSaving {
+            saveData()
+        }
+        self.performSegue(withIdentifier: "ModalImageViewControllerSegue", sender: self)
     }
 }
 

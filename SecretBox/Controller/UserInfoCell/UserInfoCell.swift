@@ -11,16 +11,13 @@ import UIKit
 class UserInfoCell: UITableViewCell {
     
     
-
+    @IBOutlet weak var imageCell: UIImageView!
+    @IBOutlet weak var titleText: UILabel!
+    @IBOutlet weak var descText: UILabel!
+    
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
-    
+        imageCell.layer.cornerRadius = 11
+    }    
 }
